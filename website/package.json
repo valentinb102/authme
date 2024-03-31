@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"otpauth": "^9.2.2",
 		"ua-parser-js": "^1.0.35"
 	}
 }
