@@ -1,5 +1,5 @@
 import { dialog, invoke } from "@tauri-apps/api"
-import { getState, setState } from "interface/stores/state"
+import { getState, setState } from "../stores/state"
 import { TOTP } from "otpauth"
 import logger from "./logger"
 
