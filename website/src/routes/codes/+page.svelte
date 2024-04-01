@@ -11,6 +11,14 @@
 	} as LibImportFile
 	let codesRefresher: NodeJS.Timeout
 
+	const getInitialCode = (i: number) => {
+		const token = new TOTP({
+			secret: codes.secrets[i],
+		}).generate()
+
+		return token
+	}
+
 	const refreshCodes = () => {
 		setTimeout(() => {
 			for (let i = 0; i < codes.secrets.length; i++) {
@@ -106,23 +114,29 @@
 
 <div class="min-h-screen flex justify-center items-start">
 	<div
-		class="transparent-900 p-3 sm:p-10 rounded-xl main m-auto my-20 w-[95%] text-center sm:w-3/5"
+		class="transparent-900 p-3 sm:p-10 rounded-xl main m-auto my-20 w-[95%] text-center lg:w-1/2"
 	>
 		<div class="mb-10">
 			<h1 class="text-4xl sm:text-6xl font-bold">Authme</h1>
 			<input type="file" id="fileUpload" accept=".authme" />
 		</div>
 
-		<div class="content mx-auto flex flex-row flex-wrap items-center justify-center gap-10 w-full">
+		<div class="content mx-auto flex flex-row flex-wrap items-center justify-center gap-10">
 			{#if codes !== undefined}
 				{#each codes.issuers as item, i}
-					<div class="transparent-800 p-4 rounded-xl w-full sm:w-1/2 space-y-3">
+					<div class="transparent-800 p-4 rounded-xl w-full lg:w-[80%] space-y-3">
 						<div class="flex">
 							<div class="flex flex-1 justify-start">
-								<p class="text-3xl whitespace-nowrap">{item}</p>
+								<p class="text-3xl whitespace-nowrap">
+									{#if item.length > 12}
+										{item.slice(0, 12)}...
+									{:else}
+										{item}
+									{/if}
+								</p>
 							</div>
 							<div class="flex flex-1 justify-center px-3">
-								<p class="text-2xl mt-1" id={`code${i}`}>-</p>
+								<p class="text-2xl mt-1" id={`code${i}`}>{getInitialCode(i)}</p>
 							</div>
 							<div class="flex flex-1 justify-end">
 								<button
