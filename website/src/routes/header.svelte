@@ -13,10 +13,10 @@
 		<nav class="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
 			<a href="/" class="mr-5 text-2xl duration-200 ease-in hover:text-gray-300">Home</a>
 
-			<a href="#features" class="mr-5 text-2xl duration-200 ease-in hover:text-gray-300">Features</a
+			<a href="/#features" class="mr-5 text-2xl duration-200 ease-in hover:text-gray-300">Features</a
 			>
 
-			<a href="#downloads" class="mr-5 text-2xl duration-200 ease-in hover:text-gray-300">
+			<a href="/#downloads" class="mr-5 text-2xl duration-200 ease-in hover:text-gray-300">
 				Downloads
 			</a>
 		</nav>
