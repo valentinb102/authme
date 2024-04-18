@@ -1,3 +1,21 @@
+### Authme 5.1.0 (2024. March 12.)
+
+-   [[9ccc46b](https://github.com/Levminer/authme/commit/9ccc46b)] Web app navigation (#293) (2024-04-01)
+-   [[7957ca7](https://github.com/Levminer/authme/commit/7957ca7)] Website static build (2024-04-01)
+-   [[cf634d6](https://github.com/Levminer/authme/commit/cf634d6)] Web codes responsive fixes (2024-04-01)
+-   [[7586d2b](https://github.com/Levminer/authme/commit/7586d2b)] Fix web build (2024-03-31)
+-   [[e37bb78](https://github.com/Levminer/authme/commit/e37bb78)] Mobile codes page design (2024-03-31)
+-   [[b79acc0](https://github.com/Levminer/authme/commit/b79acc0)] Web interface import and remove eslint (2024-03-24)
+-   [[64f6f37](https://github.com/Levminer/authme/commit/64f6f37)] Web PWA setup and update icons (2024-03-24)
+-   [[f12681e](https://github.com/Levminer/authme/commit/f12681e)] Fix translations (2024-03-12)
+-   [[b0d32c0](https://github.com/Levminer/authme/commit/b0d32c0)] Bump version (2024-03-12)
+-   [[70dc8f8](https://github.com/Levminer/authme/commit/70dc8f8)] Aegis and 2FAS tutorial (2024-03-11)
+-   [[9ed0da8](https://github.com/Levminer/authme/commit/9ed0da8)] Update crates (2024-03-07)
+-   [[c1a2396](https://github.com/Levminer/authme/commit/c1a2396)] Rewrite import instructions (2024-03-05)
+-   [[ea0e9ce](https://github.com/Levminer/authme/commit/ea0e9ce)] Initial Aegis support #264 (2024-03-05)
+-   [[ba7dd33](https://github.com/Levminer/authme/commit/ba7dd33)] Update changelog and docs (2024-03-04)
+-   [[72f0c71](https://github.com/Levminer/authme/commit/72f0c71)] Initial 2FAS support #288 (2024-02-26)
+
 ### Authme 5.0.1 (2024. February 20.)
 
 -   [[df7b932](https://github.com/Levminer/authme/commit/df7b932)] Bump version and update tauri and deps (2024-02-20)
