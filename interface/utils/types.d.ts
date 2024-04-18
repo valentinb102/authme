@@ -8,6 +8,7 @@ declare global {
 		secrets: string[]
 		issuers: string[]
 		types?: string[]
+		uniqIds?: string[]
 	}
 
 	/** Authme JSON import file options */

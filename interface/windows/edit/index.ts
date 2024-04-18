@@ -10,6 +10,7 @@ const language = getLanguage()
 let names: string[] = []
 let issuers: string[] = []
 let secrets: string[] = []
+let uniqIds: string[] = []
 
 /**
  * Generate the edit elements from the saved codes
@@ -31,16 +32,16 @@ const generateEditElements = () => {
 
 				<div>
 					<h5>${language.common.description}</h5>
-					<input id="name${i}" class="input mt-1 w-96" type="text" value="${names[i]}" readonly />
+					<input id="name${uniqIds[i]}" class="input mt-1 w-96" type="text" value="${names[i]}" readonly />
 				</div>
 			</div>
 			<div class="ml-10 flex gap-3 flex-wrap sm:mt-10 sm:w-full sm:ml-0">
-				<button id="editCode${i}" class="button">
+				<button id="editCode${uniqIds[i]}" class="button">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" /><path d="m15 5 4 4" /></svg>
 					${language.common.edit}
 				</button>
 
-				<button id="deleteCode${i}" class="button">
+				<button id="deleteCode${uniqIds[i]}" class="button">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
 					${language.common.delete}
 				</button>
@@ -48,16 +49,16 @@ const generateEditElements = () => {
 
 		// add div
 		element.classList.add("edit")
-		element.setAttribute("id", `edit${i}`)
+		element.setAttribute("id", `edit${uniqIds[i]}`)
 
 		document.querySelector(".content").appendChild(element)
 
-		document.querySelector(`#editCode${i}`).addEventListener("click", () => {
-			editCode(i)
+		document.querySelector(`#editCode${uniqIds[i]}`).addEventListener("click", () => {
+			editCode(uniqIds[i])
 		})
 
-		document.querySelector(`#deleteCode${i}`).addEventListener("click", () => {
-			deleteCode(i)
+		document.querySelector(`#deleteCode${uniqIds[i]}`).addEventListener("click", () => {
+			deleteCode(uniqIds[i])
 		})
 	}
 }
@@ -80,6 +81,7 @@ export const loadSavedCodes = async () => {
 	names = data.names
 	issuers = data.issuers
 	secrets = data.secrets
+	uniqIds = data.uniqIds
 
 	generateEditElements()
 }
@@ -104,7 +106,9 @@ export const saveChanges = async () => {
 /**
  * Edit a specific code
  */
-export const editCode = async (id: number) => {
+export const editCode = async (uniqId: string) => {
+	const id = uniqIds.indexOf(uniqId)
+
 	const issuer: HTMLInputElement = document.querySelector(`#issuer${id}`)
 	const name: HTMLInputElement = document.querySelector(`#name${id}`)
 
@@ -145,7 +149,9 @@ export const editCode = async (id: number) => {
 /**
  * Delete a specific code
  */
-export const deleteCode = async (id: number) => {
+export const deleteCode = async (uniqId: string) => {
+	const id = uniqIds.indexOf(uniqId)
+
 	const res = await dialog.ask(language.edit.dialog.deleteCode, { type: "warning" })
 
 	if (res === true) {
@@ -153,7 +159,7 @@ export const deleteCode = async (id: number) => {
 		secrets.splice(id, 1)
 		issuers.splice(id, 1)
 
-		document.querySelector(`#edit${id}`).remove()
+		document.querySelector(`#edit${uniqId}`).remove()
 
 		saveChanges()
 	}

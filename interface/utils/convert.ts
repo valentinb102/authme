@@ -17,6 +17,7 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 	let secrets: string[] = []
 	const issuers: string[] = []
 	const types: string[] = []
+	const uniqIds: string[] = []
 
 	// remove double quotes, next line, split new lines
 	const convertedText = text.replace(/"/g, "").replace(/,/g, "\n").split(/\n/)
@@ -88,6 +89,11 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 		}
 	}
 
+	// Assign unique ids to each code
+	for (let i = 0; i < names.length; i++) {
+		uniqIds.push(crypto.randomUUID())
+	}
+
 	// Sort codes
 	const originalIssuers = [...issuers]
 
@@ -127,6 +133,7 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 		secrets,
 		issuers,
 		types,
+		uniqIds,
 	}
 }
 
