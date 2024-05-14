@@ -46,8 +46,8 @@ export const localeFR: typeof localeEN = {
 			passwordsNotMatch: "Les mots de passe ne correspondent pas. \n\nVeuillez réessayer !",
 			passwordMinLength: "La longueur minimale du mot de passe est de 8 caractères. \n\nVeuillez réessayer !",
 			passwordMaxLength: "La longueur maximale du mot de passe est de 64 caractères. \n\nVeuillez réessayer !",
-			commonPassword: "Ce mot de passe figure dans la liste des 1000 mots de passe les plus courants. Veuillez choisir un mot de passe plus sécurisé !",		
-        },
+			commonPassword: "Ce mot de passe figure dans la liste des 1000 mots de passe les plus courants. Veuillez choisir un mot de passe plus sécurisé !",
+		},
 	},
 
 	confirm: {
@@ -121,15 +121,15 @@ export const localeFR: typeof localeEN = {
 		manualEntrySecret: "Secret (obligatoire)",
 		manualEntryDescription: "Description",
 		// tutorial
-		googleAuthTutorial : ["Exportez les codes 2FA depuis l'application Google Authenticator : appuyez sur le menu hamburger dans le coin supérieur gauche de l'écran : Transférer les comptes > Exporter les comptes", "Enregistrez le(s) code(s) QR de migration avec une capture d'écran ou prenez un photo avec un autre téléphone si vous êtes sous Android. Transférez ces images sur votre ordinateur", "Dans Authme, allez sur la page Importer : Barre latérale > Importer", "Cliquez sur le bouton Choisir les images et sélectionnez la ou les images que vous avez transférées depuis votre téléphone"],
-		totpTutorial : ["Allez sur le site Web sur lequel vous souhaitez configurer 2FA", "Prenez une capture d'écran (touche Windows + Maj + combinaison de touches S sous Windows, Cmd + Maj + 3 sur macOS) du code QR et enregistrez l'image" , "Dans Authme, allez sur la page Importer : Barre latérale > Importer", "Cliquez sur le bouton Choisir les images et sélectionnez l'image"],
-		authmeTutorial : ["Dans Authme, allez sur la page Exporter et choisissez Exporter le fichier Authme", "Vous pouvez importer ce fichier dans Authme sur la page Importer"],
-		aegisTutorial : ["Appuyez sur le menu hamburger dans le coin supérieur droit de l'écran : Paramètres > Importer et exporter > Exporter", "Sélectionnez le format Aegis JSON et décochez la case Cryptage et exportez votre coffre-fort", "Transférez le fichier sur votre ordinateur et importez-le dans Authme"],
-		twoFasTutorial : ["Appuyez sur les paramètres dans la barre de navigation : 2FAS Backup > Export to file", "Cochez la case d'exportation du fichier sans mot de passe et appuyez sur exporter", "Transférez le fichier sur votre ordinateur et importez-le dans Authme"],
+		googleAuthTutorial: ["Exportez les codes 2FA depuis l'application Google Authenticator : appuyez sur le menu hamburger dans le coin supérieur gauche de l'écran : Transférer les comptes > Exporter les comptes", "Enregistrez le(s) code(s) QR de migration avec une capture d'écran ou prenez un photo avec un autre téléphone si vous êtes sous Android. Transférez ces images sur votre ordinateur", "Dans Authme, allez sur la page Importer : Barre latérale > Importer", "Cliquez sur le bouton Choisir les images et sélectionnez la ou les images que vous avez transférées depuis votre téléphone"],
+		totpTutorial: ["Allez sur le site Web sur lequel vous souhaitez configurer 2FA", "Prenez une capture d'écran (touche Windows + Maj + combinaison de touches S sous Windows, Cmd + Maj + 3 sur macOS) du code QR et enregistrez l'image", "Dans Authme, allez sur la page Importer : Barre latérale > Importer", "Cliquez sur le bouton Choisir les images et sélectionnez l'image"],
+		authmeTutorial: ["Dans Authme, allez sur la page Exporter et choisissez Exporter le fichier Authme", "Vous pouvez importer ce fichier dans Authme sur la page Importer"],
+		aegisTutorial: ["Appuyez sur le menu hamburger dans le coin supérieur droit de l'écran : Paramètres > Importer et exporter > Exporter", "Sélectionnez le format Aegis JSON et décochez la case Cryptage et exportez votre coffre-fort", "Transférez le fichier sur votre ordinateur et importez-le dans Authme"],
+		twoFasTutorial: ["Appuyez sur les paramètres dans la barre de navigation : 2FAS Backup > Export to file", "Cochez la case d'exportation du fichier sans mot de passe et appuyez sur exporter", "Transférez le fichier sur votre ordinateur et importez-le dans Authme"],
 	},
 
 	export: {
-        exportCodes: "Exporter les codes",
+		exportCodes: "Exporter les codes",
 		exportAuthmeFile: "Exporter le fichier Authme",
 		exportAuthmeFileText: "Idéal pour importer pour Authme ou d'autres applications Authme.",
 		exportHTMlFile: "Exporter le fichier HTML",
