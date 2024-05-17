@@ -106,7 +106,7 @@ export const localeEN = {
 		twoFasFileButton: "Choose file",
 		// aegis
 		aegisAuth: "Aegis Authenticator",
-		aegisAuthText: "Import all codes from from an Aegis vault.",
+		aegisAuthText: "Import all codes from an Aegis vault.",
 		aegisFile: "Aegis vault file (without password)",
 		aegisFileText: "Import all codes from an existing Aegis vault file without a password.",
 		aegisFileButton: "Choose file",
