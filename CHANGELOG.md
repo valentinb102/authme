@@ -1,3 +1,21 @@
+### Authme 5.1.1 (2024. May 14.)
+
+-   [[93f108c](https://github.com/Levminer/authme/commit/93f108c)] Fix windows sign (2024-05-14)
+-   [[3b19436](https://github.com/Levminer/authme/commit/3b19436)] Bump version, tauri and packages (2024-05-14)
+-   [[f43beb2](https://github.com/Levminer/authme/commit/f43beb2)] Add french language (2024-05-14)
+-   [[00fd648](https://github.com/Levminer/authme/commit/00fd648)] Update rust targets (2024-05-14)
+-   [[c36ccb1](https://github.com/Levminer/authme/commit/c36ccb1)] French translation (#296) (2024-05-10)
+-   [[9ff65a0](https://github.com/Levminer/authme/commit/9ff65a0)] Sign Windows executable (#295) (2024-04-22)
+-   [[00d2e31](https://github.com/Levminer/authme/commit/00d2e31)] Fix deleting codes #294 (2024-04-18)
+-   [[739a747](https://github.com/Levminer/authme/commit/739a747)] Update packages and changelog (2024-04-18)
+-   [[9ccc46b](https://github.com/Levminer/authme/commit/9ccc46b)] Web app navigation (#293) (2024-04-01)
+-   [[7957ca7](https://github.com/Levminer/authme/commit/7957ca7)] Website static build (2024-04-01)
+-   [[cf634d6](https://github.com/Levminer/authme/commit/cf634d6)] Web codes responsive fixes (2024-04-01)
+-   [[7586d2b](https://github.com/Levminer/authme/commit/7586d2b)] Fix web build (2024-03-31)
+-   [[e37bb78](https://github.com/Levminer/authme/commit/e37bb78)] Mobile codes page design (2024-03-31)
+-   [[b79acc0](https://github.com/Levminer/authme/commit/b79acc0)] Web interface import and remove eslint (2024-03-24)
+-   [[64f6f37](https://github.com/Levminer/authme/commit/64f6f37)] Web PWA setup and update icons (2024-03-24)
+
 ### Authme 5.1.0 (2024. March 12.)
 
 -   [[9ccc46b](https://github.com/Levminer/authme/commit/9ccc46b)] Web app navigation (#293) (2024-04-01)
