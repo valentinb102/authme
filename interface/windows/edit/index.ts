@@ -27,7 +27,7 @@ const generateEditElements = () => {
 		<div class="flex flex-wrap gap-3">
 				<div>
 					<h5>${language.common.name}</h5>
-					<input id="issuer${i}" class="input mt-1" type="text" value="${issuers[i]}" readonly />
+					<input id="issuer${uniqIds[i]}" class="input mt-1" type="text" value="${issuers[i]}" readonly />
 				</div>
 
 				<div>
@@ -109,8 +109,8 @@ export const saveChanges = async () => {
 export const editCode = async (uniqId: string) => {
 	const id = uniqIds.indexOf(uniqId)
 
-	const issuer: HTMLInputElement = document.querySelector(`#issuer${id}`)
-	const name: HTMLInputElement = document.querySelector(`#name${id}`)
+	const issuer: HTMLInputElement = document.querySelector(`#issuer${uniqId}`)
+	const name: HTMLInputElement = document.querySelector(`#name${uniqId}`)
 
 	issuer.focus()
 	const length = issuer.value.length
@@ -129,8 +129,8 @@ export const editCode = async (uniqId: string) => {
 		issuer.style.color = "white"
 		name.style.color = "white"
 
-		const newIssuer = document.querySelector(`#issuer${id}`).value
-		const newName = document.querySelector(`#name${id}`).value
+		const newIssuer = document.querySelector(`#issuer${uniqId}`).value
+		const newName = document.querySelector(`#name${uniqId}`).value
 
 		const res = await dialog.ask(language.edit.dialog.saveChanges, { type: "warning" })
 
