@@ -4,6 +4,10 @@
 		active = event.detail
 
 		$settings.settings[setting] = options.indexOf(active)
+
+		if (setting === "language") {
+			location.reload()
+		}
 	}}
 >
 	<div class="relative">
@@ -14,7 +18,7 @@
 		</span>
 
 		<Transition enter="transition duration-100 ease-out" enterFrom="transform scale-95 opacity-0" enterTo="transform scale-100 opacity-100" leave="transition duration-75 ease-out" leaveFrom="transform scale-100 opacity-100" leaveTo="transform scale-95 opacity-0">
-			<div class="absolute z-10 mt-1 w-full rounded-xl bg-white shadow-lg ">
+			<div class="absolute z-10 mt-1 w-full rounded-xl bg-white shadow-lg">
 				<ListboxOptions class="max-h-60 overflow-auto p-2 text-base leading-6 shadow-xl focus:outline-none sm:text-sm sm:leading-5">
 					{#each options as name (name)}
 						<ListboxOption

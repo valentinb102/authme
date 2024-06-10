@@ -44,6 +44,16 @@
 
 		<div class="transparent-800 mb-5 flex w-full flex-row items-center justify-between rounded-xl p-5 text-left">
 			<div>
+				<h2>Language</h2>
+				<h3>Select your preferred language. By default it will be the system language</h3>
+			</div>
+			<div class="ml-20 flex gap-3">
+				<Select options={["Default", "English", "Hungarian", "Spanish", "French", "Russian", "German"]} setting={"language"} />
+			</div>
+		</div>
+
+		<div class="transparent-800 mb-5 flex w-full flex-row items-center justify-between rounded-xl p-5 text-left">
+			<div>
 				<h2>{language.settings.clearData}</h2>
 				<h3>{language.settings.clearDataText}</h3>
 			</div>
@@ -117,7 +127,7 @@
 				</div>
 				<div class="ml-10 flex flex-wrap gap-3 sm:ml-0 sm:mt-10 sm:w-full">
 					<button on:click={() => editShortcut(i)} id="editShortcut{i}" class="button">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" /><path d="m15 5 4 4" /></svg>
 						{language.settings.shortcutsEditButton}
 					</button>
 					<button on:click={() => resetShortcut(i)} id="resetShortcut{i}" class="button">

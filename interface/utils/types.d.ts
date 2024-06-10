@@ -55,6 +55,7 @@ declare global {
 		}
 
 		settings: {
+			language: number
 			launchOnStartup: boolean
 			minimizeToTray: boolean
 			optionalAnalytics: boolean

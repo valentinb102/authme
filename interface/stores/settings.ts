@@ -17,6 +17,7 @@ const defaultSettings: LibSettings = {
 	},
 
 	settings: {
+		language: 0,
 		launchOnStartup: true,
 		minimizeToTray: true,
 		optionalAnalytics: true,
@@ -53,6 +54,10 @@ export const settings = writable<LibSettings>(localStorage.settings ? JSON.parse
 // Listen for store events
 settings.subscribe((data) => {
 	console.log("Settings changed: ", data)
+
+	if (data.settings.language === undefined) {
+		data.settings.language = 0
+	}
 
 	localStorage.setItem("settings", JSON.stringify(data))
 })
