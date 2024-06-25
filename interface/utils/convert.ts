@@ -13,8 +13,8 @@ const state = getState()
  */
 export const textConverter = (text: string, sortNumber: number): LibImportFile => {
 	const data: string[] = []
-	let names: string[] = []
-	let secrets: string[] = []
+	const names: string[] = []
+	const secrets: string[] = []
 	const issuers: string[] = []
 	const types: string[] = []
 	const uniqIds: string[] = []
@@ -94,46 +94,45 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 		uniqIds.push(crypto.randomUUID())
 	}
 
-	// Sort codes
-	const originalIssuers = [...issuers]
+	// Put unsorted codes in a map
+	const codesMap = new Map<string, LibCodesFormat>()
+	let sortedMap = new Map<string, LibCodesFormat>()
 
-	const sort = () => {
-		const newNames = []
-		const newSecrets = []
-
-		issuers.forEach((element) => {
-			for (let i = 0; i < originalIssuers.length; i++) {
-				if (element === originalIssuers[i]) {
-					newNames.push(names[i])
-					newSecrets.push(secrets[i])
-				}
-			}
+	for (let i = 0; i < names.length; i++) {
+		codesMap.set(uniqIds[i], {
+			name: names[i],
+			secret: secrets[i],
+			issuer: issuers[i],
+			type: types[i],
 		})
-
-		names = newNames
-		secrets = newSecrets
 	}
 
+	// Sort map
 	if (sortNumber === 1) {
-		issuers.sort((a, b) => {
-			return a.localeCompare(b)
-		})
-
-		sort()
+		sortedMap = new Map([...codesMap.entries()].sort((a, b) => a[1].issuer.localeCompare(b[1].issuer)))
 	} else if (sortNumber === 2) {
-		issuers.sort((a, b) => {
-			return b.localeCompare(a)
-		})
-
-		sort()
+		sortedMap = new Map([...codesMap.entries()].sort((a, b) => b[1].issuer.localeCompare(a[1].issuer)))
 	}
+
+	const sortedUniqIds = []
+	const sortedNames = []
+	const sortedSecrets = []
+	const sortedIssuers = []
+	const sortedTypes = []
+	sortedMap.forEach((value, key) => {
+		sortedUniqIds.push(key)
+		sortedNames.push(value.name)
+		sortedSecrets.push(value.secret)
+		sortedIssuers.push(value)
+		sortedTypes.push(value.type)
+	})
 
 	return {
-		names,
-		secrets,
-		issuers,
-		types,
-		uniqIds,
+		names: sortedNames,
+		secrets: sortedSecrets,
+		issuers: sortedIssuers,
+		types: sortedTypes,
+		uniqIds: sortedUniqIds,
 	}
 }
 
