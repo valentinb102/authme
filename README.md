@@ -14,6 +14,7 @@
 -   📡 Completely offline: You own your data, internet is only required for updates.
 -   💻 Privacy in mind: Authme is hidden from video capture and screenshots.
 -   📃 Easy export and backup: You can export your 2FA codes anytime and you can create a backup of your codes very easily.
+-   🌐 Multi-language: Authme is available in 🇬🇧 English, 🇭🇺 Hungarian, 🇪🇸 Spanish, 🇫🇷 French, 🇷🇺 Russian, 🇩🇪 German, 🇨🇳 Chinese, and 🇵🇱 Polish.
 
 ## Supported 2FA types
 
@@ -26,23 +27,15 @@
 
 <img src="https://raw.githubusercontent.com/Levminer/authme/dev/screenshots/codes.png?raw=true">
 
-## Downloads (Release)
+## Downloads
 
 -   Latest release version for users that want a stable and polished experience.
 
 [![Latest release](https://img.shields.io/github/v/release/levminer/authme?label=Release)](https://tooomm.github.io/github-release-stats/?username=Levminer&repository=authme)
 [![Download](https://img.shields.io/badge/Windows,%20Linux,%20macOS-download-brightgreen)](https://authme.levminer.com/#downloads)
-[![Updated](https://img.shields.io/github/last-commit/levminer/authme/main?color=yellowgreen&label=Updated)](https://github.com/Levminer/authme/releases)
+[![Updated](https://img.shields.io/github/last-commit/levminer/authme/dev?color=yellowgreen&label=Updated)](https://github.com/Levminer/authme/releases)
 
 -   Also available on: [Microsoft Store](https://link.levminer.com/authme-ms-store), [Snapcraft](https://snapcraft.io/authme), [winget](https://winstall.app/apps/Levminer.Authme), and [Scoop](https://scoop.sh/#/apps?s=2&d=1&o=true&q=authme).
-
-## Downloads (Alpha)
-
--   Latest alpha version for users that want to try out new features early.
-
-[![Latest alpha](https://img.shields.io/github/package-json/v/levminer/authme/dev?label=Alpha&color=blue)](https://tooomm.github.io/github-release-stats/?username=Levminer&repository=authme)
-[![Download](https://img.shields.io/badge/Windows,%20Linux,%20macOS-download-brightgreen)](https://authme.levminer.com/#downloads-alpha)
-[![Updated](https://img.shields.io/github/last-commit/levminer/authme/dev?color=yellowgreen&label=Updated)](https://github.com/Levminer/authme/actions/workflows/alpha-artifacts.yml)
 
 ## Migration
 
