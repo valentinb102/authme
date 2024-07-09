@@ -48,7 +48,7 @@
 				<h3>Select your preferred language. By default it will be the system language</h3>
 			</div>
 			<div class="ml-20 flex gap-3">
-				<Select options={["Default", "English", "Hungarian", "Spanish", "French", "Russian", "German"]} setting={"language"} />
+				<Select options={["Default", "English", "Hungarian", "Spanish", "French", "Russian", "German", "Chinese", "Polish"]} setting={"language"} />
 			</div>
 		</div>
 

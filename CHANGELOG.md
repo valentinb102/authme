@@ -1,3 +1,12 @@
+### Authme 5.2.1 (2024. June 18.)
+
+-   [[822ce1d](https://github.com/Levminer/authme/commit/822ce1d)] Update to svelte 4 + updated crates (2024-06-18)
+-   [[e2b1b97](https://github.com/Levminer/authme/commit/e2b1b97)] Change language in options (2024-06-10)
+-   [[f2ab6a3](https://github.com/Levminer/authme/commit/f2ab6a3)] Fix editing codes #300 (2024-06-03)
+-   [[c5c6026](https://github.com/Levminer/authme/commit/c5c6026)] Add German translation (#299) (2024-05-23)
+-   [[7f13cf4](https://github.com/Levminer/authme/commit/7f13cf4)] Update changelog and version (2024-05-21)
+-   [[e71829f](https://github.com/Levminer/authme/commit/e71829f)] Add Russian translation (#297) (2024-05-17)
+
 ### Authme 5.1.1 (2024. May 14.)
 
 -   [[93f108c](https://github.com/Levminer/authme/commit/93f108c)] Fix windows sign (2024-05-14)
