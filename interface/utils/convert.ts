@@ -58,8 +58,8 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 					secret,
 				}).generate()
 			} catch (error) {
-				dialog.message("Failed to generate TOTP code from secret. \n\nMake sure you import file is correct!", { type: "error" })
-				logger.error("Failed to generate TOTP code from secret")
+				dialog.message("Failed to generate TOTP code from secret. \n\nMake sure your import file is correct!", { type: "error" })
+				logger.error(`Failed to generate TOTP code from secret: ${error} - ${secret}`)
 
 				state.importData = null
 				setState(state)
@@ -112,6 +112,8 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 		sortedMap = new Map([...codesMap.entries()].sort((a, b) => a[1].issuer.localeCompare(b[1].issuer)))
 	} else if (sortNumber === 2) {
 		sortedMap = new Map([...codesMap.entries()].sort((a, b) => b[1].issuer.localeCompare(a[1].issuer)))
+	} else {
+		sortedMap = codesMap
 	}
 
 	const sortedUniqIds = []
@@ -123,7 +125,7 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
 		sortedUniqIds.push(key)
 		sortedNames.push(value.name)
 		sortedSecrets.push(value.secret)
-		sortedIssuers.push(value)
+		sortedIssuers.push(value.issuer)
 		sortedTypes.push(value.type)
 	})
 

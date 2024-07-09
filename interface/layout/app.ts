@@ -8,7 +8,7 @@ import { dev, version } from "../../build.json"
 import { optionalAnalyticsPayload } from "interface/utils/analytics"
 import { checkForUpdate } from "interface/utils/update"
 import logger from "interface/utils/logger"
-import { init, trackEvent } from "@aptabase/web"
+import posthog from "posthog-js"
 
 const settings = getSettings()
 const state = getState()
@@ -19,9 +19,6 @@ const app = new App({
 })
 
 export default app
-
-// Setup analytics
-init("A-EU-1557095726", { appVersion: version, isDebug: false })
 
 // Set background color if vibrancy not supported
 const setBackground = async () => {
@@ -104,7 +101,15 @@ const optionalAnalytics = async () => {
 		const payload = await optionalAnalyticsPayload()
 
 		try {
-			trackEvent("app_start", { version: payload.version, build: payload.build, os: payload.os, lang: payload.lang, date: payload.date.toISOString().split("T")[0] })
+			posthog.init("phc_QYxqnCtHIrREhZ47S6ZVPaksY8jO2j7YZCPQjbPgF09", {
+				api_host: "https://eu.i.posthog.com",
+				capture_pageview: false,
+				capture_pageleave: false,
+				persistence: "localStorage",
+				autocapture: false,
+			})
+
+			posthog.capture("app_start", { version: payload.version, build: payload.build, os: payload.os, lang: payload.lang, date: payload.date.toISOString().split("T")[0] })
 		} catch (error) {
 			logger.error(`Failed to send analytics: ${error}`)
 		}
