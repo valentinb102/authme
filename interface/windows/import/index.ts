@@ -218,9 +218,12 @@ export const twoFasAuthFile = async () => {
 
 	interface TwoFasFile {
 		services: {
+			name: string
+			secret: string
 			otp: {
 				link: string
 				tokenType: string
+				source: "Link" | "Manual"
 			}
 		}[]
 	}
@@ -236,7 +239,11 @@ export const twoFasAuthFile = async () => {
 			console.log(service)
 
 			if (service.otp.tokenType === "TOTP") {
-				importString += totpImageConverter(service.otp.link)
+				if (service.otp.source === "Link") {
+					importString += totpImageConverter(service.otp.link)
+				} else {
+					importString += totpImageConverter(`otpauth://totp/${service.name}?secret=${service.secret}&issuer=${service.name}`)
+				}
 			}
 		}
 
