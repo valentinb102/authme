@@ -144,26 +144,19 @@ export const textConverter = (text: string, sortNumber: number): LibImportFile =
  * @return {string} string
  */
 export const totpImageConverter = (data: string): string => {
-	// get url
-	let url = data.replaceAll(/\s/g, "")
-	url = url.slice(15)
+	const uri = new URL(data)
 
 	// get name
-	const nameIndex = url.match(/[?]/)
-	const name = url.slice(0, nameIndex.index)
-	url = url.slice(name.length + 1)
+	const name = uri.pathname.slice(1)
 
 	// get secret
-	const secretIndex = url.match(/[&]/)
-	const secret = url.slice(7, secretIndex.index)
-	url = url.slice(secret.length + 14 + 1)
+	const secret = uri.searchParams.get("secret")
 
 	// get issuer
-	const issuerIndex = url.match(/[&]/)
-	let issuer = issuerIndex ? url.slice(0, issuerIndex.index) : url
+	let issuer = uri.searchParams.get("issuer")
 
 	// check if issuer is empty
-	if (issuer === "") {
+	if (issuer === "" || issuer === null) {
 		issuer = name
 	}
 
