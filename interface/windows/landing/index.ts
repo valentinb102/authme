@@ -54,7 +54,7 @@ export const createPassword = async () => {
 	const input1 = document.querySelector(".passwordInput1")
 
 	if (input0.value !== input1.value) {
-		dialog.message(language.landing.dialog.passwordsNotMatch, { type: "error" })
+		return dialog.message(language.landing.dialog.passwordsNotMatch, { type: "error" })
 	}
 
 	if (input0.value.length < 8) {
