@@ -79,6 +79,10 @@ declare global {
 			settings: string
 			exit: string
 		}
+		
+		banners: {
+			sponsor?: Date
+		}
 	}
 
 	/** Query selector element types */

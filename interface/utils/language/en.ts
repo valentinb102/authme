@@ -67,7 +67,7 @@ export const localeEN = {
 		noSearchResultsFound: "No search results found",
 		noSearchResultsFoundText: "Not found search results for",
 		dialog: {
-			noSaveFileFound: "No save file found. \n\nGo to the codes or the import page and import your codes!",
+			noSaveFileFound: "No save file found. \n\nGo to the import page and import your codes!",
 			codesImported: "Codes imported. \n\nYou can edit your codes on the edit page.",
 		},
 	},

@@ -12,6 +12,8 @@
 			<UpdateAlert />
 		{/if}
 
+		<Banners />
+
 		<div class="top" />
 
 		<RouteTransition>
@@ -48,6 +50,7 @@
 	import Confirm from "../windows/confirm/confirm.svelte"
 	import Navigation from "../components/navigation.svelte"
 	import Edit from "../windows/edit/edit.svelte"
+	import Banners from "@components/banners.svelte"
 
 	onMount(() => {
 		// Debug info

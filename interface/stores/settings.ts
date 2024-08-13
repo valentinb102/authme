@@ -41,6 +41,10 @@ const defaultSettings: LibSettings = {
 		settings: "None",
 		exit: "CmdOrCtrl+Shift+d",
 	},
+
+	banners: {
+		sponsor: null,
+	},
 }
 
 // Setup auto launch on first start
@@ -57,6 +61,14 @@ settings.subscribe((data) => {
 
 	if (data.settings.language === undefined) {
 		data.settings.language = 0
+	}
+
+	if (data.banners === undefined) {
+		data.banners = {}
+	}
+
+	if (data.banners.sponsor === undefined) {
+		data.banners.sponsor = null
 	}
 
 	localStorage.setItem("settings", JSON.stringify(data))
