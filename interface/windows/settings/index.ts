@@ -66,15 +66,15 @@ export const clearData = async (clearCodesOption: boolean, clearSettingsOption: 
 		if (confirm0 === false) {
 			return
 		}
-	
+
 		const confirm1 = await dialog.ask("Are you absolutely sure? \n\nThere is no way back!", { type: "warning" })
-	
+
 		if (confirm1 === true) {
 			localStorage.clear()
 			sessionStorage.clear()
-	
+
 			await deleteEncryptionKey("encryptionKey")
-	
+
 			if (build.dev === false) {
 				await invoke("disable_auto_launch")
 				process.exit()
