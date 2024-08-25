@@ -44,27 +44,44 @@ export const about = async () => {
 	}
 }
 
-export const clearData = async () => {
-	const confirm0 = await dialog.ask("Are you sure you want to clear all data? \n\nThis cannot be undone!", { type: "warning" })
+export const clearData = async (clearCodesOption: boolean, clearSettingsOption: boolean) => {
+	// clear codes
+	if (clearCodesOption && !clearSettingsOption) {
+		const confirm0 = await dialog.ask("Are you sure you want to clear 2FA codes? \n\nThis cannot be undone!", { type: "warning" })
 
-	if (confirm0 === false) {
-		return
+		if (confirm0 === false) {
+			return
+		}
+
+		settings.vault.codes = null
+		setSettings(settings)
+
+		navigate("codes")
 	}
 
-	const confirm1 = await dialog.ask("Are you absolutely sure? \n\nThere is no way back!", { type: "warning" })
+	// clear everything
+	if (clearCodesOption && clearSettingsOption) {
+		const confirm0 = await dialog.ask("Are you sure you want to clear all data? \n\nThis cannot be undone!", { type: "warning" })
 
-	if (confirm1 === true) {
-		localStorage.clear()
-		sessionStorage.clear()
-
-		await deleteEncryptionKey("encryptionKey")
-
-		if (build.dev === false) {
-			await invoke("disable_auto_launch")
-			process.exit()
-		} else {
-			navigate("/")
-			location.reload()
+		if (confirm0 === false) {
+			return
+		}
+	
+		const confirm1 = await dialog.ask("Are you absolutely sure? \n\nThere is no way back!", { type: "warning" })
+	
+		if (confirm1 === true) {
+			localStorage.clear()
+			sessionStorage.clear()
+	
+			await deleteEncryptionKey("encryptionKey")
+	
+			if (build.dev === false) {
+				await invoke("disable_auto_launch")
+				process.exit()
+			} else {
+				navigate("/")
+				location.reload()
+			}
 		}
 	}
 }
