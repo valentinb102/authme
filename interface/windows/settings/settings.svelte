@@ -58,15 +58,7 @@
 				<h3>{language.settings.clearDataText}</h3>
 			</div>
 			<div class="ml-20 flex flex-col items-end gap-3">
-				<div class="flex">
-					<div class="text-xl">2FA Codes</div>
-					<Toggle showLabel={false} bind:checked={clearCodesOption} />
-				</div>
-				<div class="flex">
-					<div class="text-xl">Other Settings</div>
-					<Toggle showLabel={false} bind:checked={clearSettingsOption} />
-				</div>
-				<button class="button" on:click={() => clearData(clearCodesOption, clearSettingsOption)}>
+				<button class="button" on:click={showClearDataDialog}>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></svg>
 					{language.settings.clearDataButton}
 				</button>
@@ -215,10 +207,48 @@
 	</div>
 </div>
 
+<dialog class="dialog dialogClearData">
+	<h2>{language.settings.clearData}</h2>
+	<h3>{language.settings.clearDataText}</h3>
+
+	<div class="transparent-800 mt-5 flex flex-row items-center justify-between rounded-xl p-5">
+		<div>
+			<h3>2FA Codes</h3>
+		</div>
+		<div class="ml-20 flex gap-3">
+			<Toggle showLabel={false} bind:checked={clearCodesOption} />
+		</div>
+	</div>
+
+	<div class="transparent-800 mt-5 flex flex-row items-center justify-between rounded-xl p-5">
+		<div>
+			<h3>Other Settings</h3>
+		</div>
+		<div class="ml-20 flex gap-3">
+			<Toggle showLabel={false} bind:checked={clearSettingsOption} />
+		</div>
+	</div>
+
+	<div class="mt-10 flex space-x-5">
+		<button class="button dialogClearDataClose">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+			</svg>
+			{language.common.cancel}
+		</button>
+		<button class="button" on:click={() => clearData(clearCodesOption, clearSettingsOption)}>
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+			</svg>
+			{language.common.confirm}
+		</button>
+	</div>
+</dialog>
+
 <script>
 	import Select from "../../components/select.svelte"
 	import Toggle from "../../components/toggle.svelte"
-	import { about, clearData, showLogs, launchOnStartup, toggleWindowCapture, deleteCodes } from "./index"
+	import { about, clearData, showClearDataDialog, showLogs, launchOnStartup, toggleWindowCapture, deleteCodes } from "./index"
 	import { settings } from "../../stores/settings"
 	import { open } from "../../utils/navigate"
 	import { deleteShortcut, editShortcut, resetShortcut, shortcuts } from "../../utils/shortcuts"

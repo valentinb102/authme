@@ -44,6 +44,9 @@ export const about = async () => {
 	}
 }
 
+/**
+ * Delete selected data
+ */
 export const clearData = async (clearCodesOption: boolean, clearSettingsOption: boolean) => {
 	// clear codes
 	if (clearCodesOption && !clearSettingsOption) {
@@ -84,6 +87,20 @@ export const clearData = async (clearCodesOption: boolean, clearSettingsOption: 
 			}
 		}
 	}
+}
+
+/**
+ * Show Clear data dialog
+ */
+export const showClearDataDialog = () => {
+	const dialogClearData: LibDialogElement = document.querySelector(".dialogClearData")
+	const closeDialog = document.querySelector(".dialogClearDataClose")
+
+	closeDialog.addEventListener("click", () => {
+		dialogClearData.close()
+	})
+
+	dialogClearData.showModal()
 }
 
 /**
