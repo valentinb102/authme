@@ -48,6 +48,8 @@ export const about = async () => {
  * Delete selected data
  */
 export const clearData = async (clearCodesOption: boolean, clearSettingsOption: boolean) => {
+	const dialogClearData: LibDialogElement = document.querySelector(".dialogClearData")
+
 	// clear codes
 	if (clearCodesOption && !clearSettingsOption) {
 		const confirm0 = await dialog.ask("Are you sure you want to clear 2FA codes? \n\nThis cannot be undone!", { type: "warning" })
@@ -59,7 +61,30 @@ export const clearData = async (clearCodesOption: boolean, clearSettingsOption: 
 		settings.vault.codes = null
 		setSettings(settings)
 
+		dialogClearData.close()
 		navigate("codes")
+	}
+
+	// clear settings
+	if (!clearCodesOption && clearSettingsOption) {
+		const confirm0 = await dialog.ask("Are you sure you want to clear all settings? \n\nThis cannot be undone!", { type: "warning" })
+
+		if (confirm0 === false) {
+			return
+		}
+
+		settings.settings.language = 0;
+		settings.settings.launchOnStartup = true;
+		settings.settings.minimizeToTray = true;
+		settings.settings.optionalAnalytics = true;
+		settings.settings.codesDescription = false;
+		settings.settings.blurCodes = false;
+		settings.settings.sortCodes = 0;
+		settings.settings.codesLayout = 0;
+		setSettings(settings)
+
+		dialogClearData.close()
+		navigate("settings")
 	}
 
 	// clear everything
