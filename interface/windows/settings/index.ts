@@ -73,14 +73,14 @@ export const clearData = async (clearCodesOption: boolean, clearSettingsOption: 
 			return
 		}
 
-		settings.settings.language = 0;
-		settings.settings.launchOnStartup = true;
-		settings.settings.minimizeToTray = true;
-		settings.settings.optionalAnalytics = true;
-		settings.settings.codesDescription = false;
-		settings.settings.blurCodes = false;
-		settings.settings.sortCodes = 0;
-		settings.settings.codesLayout = 0;
+		settings.settings.language = 0
+		settings.settings.launchOnStartup = true
+		settings.settings.minimizeToTray = true
+		settings.settings.optionalAnalytics = true
+		settings.settings.codesDescription = false
+		settings.settings.blurCodes = false
+		settings.settings.sortCodes = 0
+		settings.settings.codesLayout = 0
 		setSettings(settings)
 
 		dialogClearData.close()
